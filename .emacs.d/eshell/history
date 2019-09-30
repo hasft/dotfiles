@@ -1,0 +1,128 @@
+ls
+exit
+mv ./~ToggleContext.jsx ToggleContext.jsx
+ls
+exit
+mv cookies-manager.js cookie-manager.js
+exit
+mv app-ref.jsx _app-ref.jsx
+exit
+mv Desktop/index.jsx ./MenubarDesktop.jsx
+exit
+mv ./Mobile/index.jsx ./MenubarMobile.jsx
+rm -rf Mobile/
+exit
+cp ./Desktop/index.jsx ./SearchDesktop.jsx
+exit
+exit
+cp index.jsx ..
+exit
+mv Desktop/index.jsx ./RegisterDesktop.jsx
+exit
+exit
+mv ./Mobile/index.jsx ./RegisterMobile.jsx
+exit
+mv Desktop/index.jsx OtpDesktop.jsx
+mv Mobile/index.jsx OtpMobile.jsx
+exit
+mv authReducers.js autReducer.js
+exit
+autReducer.js authReducer.js
+mv autReducer.js authReducer.js
+exit
+mv CategoriesContext-new.jsx CategoriesContext.jsx
+exit
+mv MainBrandContext.jsx MainbrandContext.jsx
+exit
+mv MainbrandReducer.js mainbrandReducer.js
+exit
+mv MainBrand/ Mainbrand
+exit
+mv Desktop/index.jsx FooterDesktop.jsx
+mv Mobile/index.jsx FooterMobile.jsx
+exit
+mv Desktop/index.jsx SubscribeDesktop.jsx
+mv Mobile/index.jsx  SubscribeMobile.jsx 
+exit
+cd ../../
+ls
+mv views/HeaderProfile/ common/
+ls
+cd common/
+ls
+mv HeaderProfile/ HeaderProfileTrigger
+ls
+cd HeaderProfileTrigger/
+ls
+exit
+mv ../../views/HeaderWishlist/ ../HeaderWishlistTrigger
+ls
+cd ../HeaderWishlistTrigger/
+ls
+exit
+touch heroBanner/index.jsx
+mkdir heroBanner
+exit
+mv HeroBanner.jsx heroBanner/
+ls heroBanner/
+exit
+cp config.stg.js config.js
+exit
+mv index.tsx index.ts
+exit
+ls
+mv index.ts index.tsx
+exit
+mv index.js index.ts
+exit
+cd ..
+mkdir shared
+mdkdir shared/server
+cd shared/
+mkdir server
+cd server/
+yarn init -y
+exit
+exit
+yarn init -y
+exit
+mv index.tsx src/
+mkdir src
+mv index.tsx src/
+ls
+exit
+mv index.tsx src/
+exit
+mv utils/libs/ .
+ls
+rm -rf utils/
+exit
+mv index.tsx pages/
+exit
+mv web/ js
+exit
+touch BrandContext.jsx
+exit
+mv index.tsx index.ts
+exit
+mv SocialLogin/ socialLogin
+exit
+cd sware/
+ls
+git clone https://github.com/hasft/dotfiles.git
+ls
+cd dotfiles/
+ls
+ls -a
+cat setup.sh 
+ls -a
+rm -rf .emacs.d/
+cp ~/.emacs.d/ 
+cp ~/.emacs.d/ .
+ls
+ls -a
+cp -rf ~/.emacs.d/ .
+clear
+ls -a
+git s
+git add .

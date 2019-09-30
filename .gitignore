@@ -1,0 +1,7 @@
+.emacs.d/straight
+.emacs.d/auto-save-list
+.emacs.d/url
+.emacs.d/transient
+.emacs.d/tramp
+.emacs.d/recentf
+.emacs.d/var          

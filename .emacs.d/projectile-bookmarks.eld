@@ -1,0 +1,1 @@
+("~/sware/dotfiles/" "~/sware/mds-brands/" "~/sware/dataform/" "~/sware/monorepo/" "~/sware/mds/" "~/sware/auth/" "~/sware/rules_nodejs/" "~/sware/lerna/" "~/.emacs.d/straight/repos/yasnippet-snippets/" "~/.cache/bazel/_bazel_haska/436232dfe88b88ae61f4429fb7a18b07/execroot/fe/")

@@ -180,6 +180,13 @@
   ("C-x g e" . magit-ediff-resolve)
   ("C-x g r" . magit-rebase-interactive))
 
+;; hydra: tie related commands into a family of short bindings with a common
+;; prefix - a Hydra
+;; https://github.com/abo-abo/hydra
+(use-package hydra
+  :config (hydra-add-font-lock))
+
+
 ;;; ---------------------------------------------------------------------------------------------------------End BASE
 
 (use-package smartparens
@@ -196,27 +203,46 @@
   :config
   (setq yas-triggers-in-field t))
 
-(use-package company
-  :commands company-mode
-  :init)
+
 
 (use-package flycheck
+  :bind ("C-c h f" . hydra-flycheck/body)
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode))
+  ;; (add-hook 'typescript-mode-hook 'flycheck-mode)
+  (defhydra hydra-flycheck (:color blue
+                                   :hint nil)
+    "
+  ^
+  ^Flycheck^          ^Errors^            ^Checker^
+  ^────────^──────────^──────^────────────^───────^─────
+  _q_ quit            _<_ previous        _?_ describe
+  _M_ manual          _>_ next            _d_ disable
+  _v_ verify setup    _f_ check           _m_ mode
+  ^^                  _l_ list            _s_ select
+  ^^                  ^^                  ^^
+  "
+    ("q" nil)
+    ("<" flycheck-previous-error :color pink)
+    (">" flycheck-next-error :color pink)
+    ("?" flycheck-describe-checker)
+    ("M" flycheck-manual)
+    ("d" flycheck-disable-checker)
+    ("f" flycheck-buffer)
+    ("l" flycheck-list-errors)
+    ("m" flycheck-mode)
+    ("s" flycheck-select-checker)
+    ("v" flycheck-verify-setup)))
+
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :config
+  (add-hook 'web-mode-hook #'(lambda () (yas-activate-extra-mode 'html-mode)))
+  (use-package yasnippet-snippets
+    :demand t)
+
+  (yas-global-mode 1))
 
 ;;; ---------------------------------------------------------------------------------------------------------GLOBAL
-
-(use-package web-mode
-  :mode (
-	 ("\\.js\\'" . web-mode)
-	 ("\\.html?\\'" . web-mode)
-	 ("\\.jsx\\'" . web-mode)
- 	 ("\\.json\\'" . web-mode))
-  :config
-  (setq web-mode-markup-indent-offset 2
-        web-mode-css-indent-offset 2
-        web-mode-code-indent-offset 2)
-  )
 
 (use-package markdown-mode)
 (use-package bazel-mode
@@ -226,7 +252,9 @@
 (eval-and-compile
   (add-to-list 'load-path (locate-user-emacs-file "modules/")))
 
+(require 'config-company)
 (require 'config-yaml)
-(require 'config-json)
 (require 'config-js)
 
+
+;;; ---------------------------------------------------------------------------------------------------------CHECKERS
