@@ -100,6 +100,11 @@
 (setq use-package-always-defer t)
 
 ;;; ---------------------------------------------------------------------------------------------------------End PACKAGE MANAGER
+
+(use-package better-shell
+    :bind (("C-'" . better-shell-shell)
+           ("C-;" . better-shell-remote-open)))
+
 (use-package exec-path-from-shell
   :init
   (when (memq window-system '(mac ns x))
@@ -166,7 +171,6 @@
     (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
     (global-set-key (kbd "C-c C-l") 'c/mark-all-like-this)))
 
-
 (use-package magit
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
@@ -202,8 +206,6 @@
   :init (yas-global-mode 1)
   :config
   (setq yas-triggers-in-field t))
-
-
 
 (use-package flycheck
   :bind ("C-c h f" . hydra-flycheck/body)
@@ -252,9 +254,9 @@
 (eval-and-compile
   (add-to-list 'load-path (locate-user-emacs-file "modules/")))
 
+(require 'config-dashboard)
+(require 'config-grep)
 (require 'config-company)
 (require 'config-yaml)
 (require 'config-js)
-
-
-;;; ---------------------------------------------------------------------------------------------------------CHECKERS
+(require 'config-rust)
